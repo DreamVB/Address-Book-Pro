@@ -1,7 +1,7 @@
 # Address-Book-Pro
 A Simple PHP Address Book using an SQL database
 
-<3>Getting the address book to run</h3>
+<h3>Getting the address book to run</h3>
 
 Create a new database called <b>taddressbook</b>
 in MyPhpAdmin in the SQL text box use the table.sql to create a new table and example address.
