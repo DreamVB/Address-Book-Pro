@@ -13,9 +13,27 @@
 			echo("</center>");
 		}
 		
+		function _ErrorNotLoaggedin(){
+			echo("<center>");
+			echo("<span class=invaild-parms>Your are not logged in.Please login first<br><a href=login.php>Login</a></span><br>\n");
+			echo("</center>");
+		}
+		
+		function _ErrorWrongPassword(){
+			echo("<center>");
+			echo("<span class=invaild-parms>The password entered is incorrect.<br><a href=login.php>Login</a></span><br>\n");
+			echo("</center>");
+		}
+		
 		function q_str($s)
 		{
 			return "'" . $s . "'";
+		}
+		
+		function _AddHeader(){
+			$Header = file_get_contents('inc/header.php');
+			echo($Header);
+			$Header = "";
 		}
 		
 	?>
