@@ -1,5 +1,6 @@
 <?php
 	require("inc/config.php");
+	require("inc/functions.php")
 ?>
 
 <!DOCTYPE html>
@@ -11,12 +12,9 @@
 	</head>
 	<body>
 	
-		<div class="container">
-		<?php
-			$Header = file_get_contents('inc/header.php');
-			echo($Header);
-			$Header = "";
-		?>
+	<?php 
+		_AddHeader();
+	?>
 		
 		<div class="about-info">
 		<h2>About</h2>

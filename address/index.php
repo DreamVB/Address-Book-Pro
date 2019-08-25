@@ -1,5 +1,7 @@
 <?php
 	require("inc/config.php");
+	require("inc/functions.php");
+	session_start();
 ?>
 
 <!DOCTYPE html>
@@ -11,12 +13,10 @@
 	</head>
 	<body>
 	
-		<?php
-			$Header = file_get_contents('inc/header.php');
-			echo($Header);
-			$Header = "";
-		?>
-		
+	<?php
+		 _AddHeader();
+	?>
+	
 		<div style="overflow-x:auto;">
 		<table>
 		<tr>
@@ -51,9 +51,25 @@
 			echo "<td><a class=email href=mailto:".$row["email"] .
 			" target=_blank><img class=img-icon title=Email src=images/email.png></a><a href=" .
 			$row["website"] ." target=_blank><img title='Visit Home-Page' class=img-icon src=images/home.png></a></td>\n";
+		
+	//Check if logged
+    if((isset($_SESSION['logged']))
+        and
+    ($_SESSION['logged'] == "yes")){
+    	$logged = TRUE;
+    }else{
+		$logged = FALSE;
+	}
+	
+		if($logged){
 			echo "<td><a class=link href=\"" ."edit.php?id=".$id.
 			"\"" ." onclick=\"" ."return confirm('Are you sure you want to edit this address?')\"".">Edit</a> | <a class=link href=\"" ."delete.php?id=".$id.
 			"\"" ." onclick=\"" ."return confirm('Are you sure want to delete this address?')\"".">Delete</a></td><tr>";
+		}
+		else{
+			echo "<td class=noselect>Please login to edit</td><tr>";
+		}
+		
     	}
 	}
 	else

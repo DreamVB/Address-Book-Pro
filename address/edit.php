@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	require("inc/config.php");
 	require("inc/functions.php");
 ?>
@@ -12,12 +13,19 @@
 	</head>
 	<body>
 	
-	<div class="container">
-<?php
-	$Header = file_get_contents('inc/header.php');
-	echo($Header);
-	$Header = "";
-?>
+	<?php
+	//Check if logged
+    if((isset($_SESSION['logged']))
+        and
+    ($_SESSION['logged'] == "yes")){
+    	
+    }else{
+		_ErrorNotLoaggedin("");
+		return;
+	}
+	?>
+	
+	<?php _AddHeader();?>
 
 <?php
 	//Get URL parm count

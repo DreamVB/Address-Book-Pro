@@ -1,5 +1,6 @@
 <?php
 	require("inc/config.php");
+	require("inc/functions.php")
 ?>
 
 <!DOCTYPE html>
@@ -9,6 +10,19 @@
 		<link href="css/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
+
+	<?php
+	//Check if logged
+    if((isset($_SESSION['logged']))
+        and
+    ($_SESSION['logged'] == "yes")){
+    	
+    }else{
+		_ErrorNotLoaggedin("");
+		return;
+	}
+	?>
+
 
 <?php
 	//Get url parms count
