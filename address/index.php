@@ -18,7 +18,7 @@
 	?>
 	
 		<div style="overflow-x:auto;">
-		<table>
+		<table id="tblAddress">
 		<tr class="t_header noselect2">
 			<td>#</td>
 			<td>Company / Name</td>
@@ -27,6 +27,32 @@
 			<td>Admin</td>
 		</tr>
 		
+		<input id="myInput" type="text" name="txtfind" placeholder="Search for names..." onkeyup="findNames();">
+		<br/>
+		
+	<script>
+		function findNames() {
+		  // Declare variables
+		  var input, filter, table, tr, td, i, txtfind;
+		  input = document.getElementById("myInput");
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById("tblAddress");
+		  tr = table.getElementsByTagName("tr");
+		  
+		  for (i = 1; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[1];
+		    if (td) {
+		      txtfind = td.textContent || td.innerText;
+		      if (txtfind.toUpperCase().indexOf(filter) > -1) {
+		        tr[i].style.display = "";
+		      } else {
+		        tr[i].style.display = "none";
+		      }
+		    }
+		  }
+		}
+	</script>
+	
 <?php
 
 	//Connect to database
