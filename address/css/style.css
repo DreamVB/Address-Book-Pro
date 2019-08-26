@@ -18,12 +18,21 @@ table{
 	box-sizing: border-box;
 }
 table,th,td{
-	border: 1px solid #ddd;
+
 	border-collapse: collapse;
 }
 
 .table-resize{
 	overflow-x: auto;
+}
+
+table tr:nth-child(even){
+	background-color: #eee;
+}
+
+table tr:first-child{
+	background-color: #616161;
+	color: #fff;
 }
 
 th,td{
@@ -77,8 +86,18 @@ tr:first-child{
 }
 
 .noselect {
-	cursor: wait;
+	cursor: not-allowed;
 	color: #bbb;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.noselect2 {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
@@ -183,6 +202,16 @@ label{
 	border: 0;
 	margin: 4px;
 	vertical-align: middle;
+	cursor: pointer;
+}
+
+.img-icon:hover{
+	opacity: 0.6;
+}
+
+.phone{
+	font-weight: 500;
+	color: #4a9500;
 }
 
 @media screen and (max-width: 800px) {
@@ -222,4 +251,8 @@ label{
   cursor: not-allowed;
   opacity: 0.5;
   text-decoration: none;
+}
+
+.bold{
+	font-weight: 700;
 }
