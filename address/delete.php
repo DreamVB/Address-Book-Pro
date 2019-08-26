@@ -1,6 +1,7 @@
 <?php
 	require("inc/config.php");
-	require("inc/functions.php")
+	require("inc/functions.php");
+	session_start();
 ?>
 
 <!DOCTYPE html>
